@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class TestScoreApp {
@@ -36,8 +37,10 @@ public class TestScoreApp {
 
 		// display the score count, score total, and average score
 		double averageScore = (double) scoreTotal / scoreCount;
+		NumberFormat number = NumberFormat.getNumberInstance();
+		number.setMaximumFractionDigits(1);
 		String message = "\n" + "Score count:   " + scoreCount + "\n" + "Score total:   " + scoreTotal + "\n"
-				+ "Average score: " + averageScore + "\n" +"Highest Score: "+maxScore+"\n"+"Lowest Score: "+minScore+"\n";
+				+ "Average score: " + number.format(averageScore) + "\n" +"Highest Score: "+maxScore+"\n"+"Lowest Score: "+minScore+"\n";
 		System.out.println(message);
 	}
 }
