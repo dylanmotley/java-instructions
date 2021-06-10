@@ -18,19 +18,21 @@ public class MPGApp {
             BigDecimal miles = new BigDecimal(sc.next() );
             
             System.out.print("Enter gallons of gas used: ");
-            BigDecimal gallons = new BigDecimal(sc.next() );
+            BigDecimal gallons = new BigDecimal(sc.next());
             
-            /*NumberFormat number = NumberFormat.getNumberInstance();
-            number.setMaximumFractionDigits(2);
-            System.out.print("Miles per gallon is: "+number.format(mpg)); */
-             // mpg = Math.round(mpg); <Rounds Whole Number>
-             // mpg = (double)Math.round(mpg*100)/100; <Rounds Two Decimal Places> 
-            
+            // mpg = miles/gallons;
+            // mpg = (int) Math.round(mpg);
+            // mpg = (double) Math.round(mpg * 100)/ 100;
+            // System.out.println("Miles per gallon is " + mpg + ".");
             BigDecimal mpg = miles.divide(gallons, 2, RoundingMode.HALF_UP);
-            		
-            
-            System.out.println("Miles per gallon is " + mpg + ".");
             System.out.println(); 
+            
+            //NumberFormat number = NumberFormat.getNumberInstance();
+            // number.setMaximumFractionDigits(2);
+            
+            // System.out.println("Miles per gallon is "+number.format(mpg)+".");
+            System.out.println("Miles per gallon is "+mpg.toString()+".");
+            System.out.println();
             
             System.out.print("Calculate another MPG? (y/n): ");
             choice = sc.next();

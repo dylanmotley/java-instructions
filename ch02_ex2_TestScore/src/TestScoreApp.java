@@ -23,18 +23,19 @@ public class TestScoreApp {
 
             // accumulate score count and score total
             if (testScore <= 100) {
-            	
-                scoreCount = scoreCount + 1;
-                scoreTotal = scoreTotal + testScore;
+            	scoreCount = scoreCount + 1;
+            	scoreTotal = scoreTotal + testScore;
             }
-            if (testScore == 999)
-            	System.out.println();
-            else if (testScore >= 100)
-            	System.out.println("Invalid Entry");   	
+            else if (testScore != 999) {
+            	System.out.println("Invalid");
+            }
         }
 
         // display the score count, score total, and average score
-        double averageScore = (double) scoreTotal / scoreCount;
+        double averageScore = 0.0;
+        if (scoreCount > 0) {
+        averageScore = (double) scoreTotal / scoreCount;
+        }
         String message = "\n"
                 + "Score count:   " + scoreCount + "\n"
                 + "Score total:   " + scoreTotal + "\n"
