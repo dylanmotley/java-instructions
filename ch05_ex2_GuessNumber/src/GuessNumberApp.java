@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GuessNumberApp {
@@ -27,23 +26,24 @@ public class GuessNumberApp {
 		int count = 1;
 		while (true) {
 			System.out.print("Your guess: ");
+			// int guess = sc.nextInt();
 			int guess = 0;
+//            try {
+//                guess = sc.nextInt();
+//            } catch (InputMismatchException e) {
+//                System.out.println("Error! Invalid number. Try again.");
+//                sc.nextLine();
+//                continue;
+//            }
 			if (sc.hasNextInt()) {
 				guess = sc.nextInt();
 				sc.nextLine();
 			} else {
-				System.out.println("Invalid");
+				System.out.println("Error! Invalid number. Try again.");
 				sc.nextLine();
 				continue;
 			}
-//            int guess = sc.nextInt();
-//            try {
-//            	guess = sc.nextInt();
-//            } catch (InputMismatchException e) {
-//            	System.out.println("Invalid!");
-//            	sc.nextLine();
-//            	continue;
-//            }
+
 			if (guess < 1 || guess > LIMIT) {
 				System.out.println("Invalid guess. Try again.");
 				continue;

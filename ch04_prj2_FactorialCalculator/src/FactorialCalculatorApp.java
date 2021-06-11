@@ -3,30 +3,31 @@ import java.util.Scanner;
 public class FactorialCalculatorApp {
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to the Factorial App");
+		System.out.println("Welcome to the Factorial Calculator");
+		System.out.println();
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println();
 		String choice = "y";
 		while (choice.equalsIgnoreCase("y")) {
-			System.out.print("Enter an integer that's greater than 0 and less than 10: ");
-			int nbr = sc.nextInt();
-
-			long factorial = 1;
-			for (int i=1; i <= nbr; i++) {
-				factorial *= i;	// remember, same as fact = fact * i
-			}
+			System.out.println("Enter an integer that's greater than 0 and less than 10: ");
+			int number = sc.nextInt();
 			
-			System.out.println("The factorial of "+nbr+" is "+factorial);
+            long factorial = 1;
+            for (int i = 1; i <= number; i++) {
+                factorial *= i;
+            }
 			
-			System.out.println("Continue ? (y/n)");
+			System.out.println("The factorial of " +number +" is "+factorial);
+			System.out.println();
+			
+			System.out.println("Continue?");
 			choice = sc.next();
+		
 		}
-		
-		
-		sc.close();
-		System.out.println("Bye");
 
+		System.out.println("Bye");
+		sc.close();
 	}
 
 }
