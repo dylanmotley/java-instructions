@@ -1,6 +1,4 @@
-
 public class Movie {
-
 	private int id;
 	private String title;
 	private int year;
@@ -58,6 +56,11 @@ public class Movie {
 
 	public void setDirector(String director) {
 		this.director = director;
+	}
+
+	@Override
+	public String toString() {
+		return title + " (" + year + "), rated " + rating + ", " + "directed by " + director;
 	}
 
 }

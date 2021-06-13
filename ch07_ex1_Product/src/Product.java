@@ -1,18 +1,19 @@
 import java.text.NumberFormat;
 
-public class Product implements Displayable {
+public class Product {
 
 	private String code;
 	private String description;
 	private double price;
 
 	public Product() {
-		this.code = "";
-		this.description = "";
-		this.price = 0;
+		code = "";
+		description = "";
+		price = 0;
 	}
 
 	public Product(String code, String description, double price) {
+		super();
 		this.code = code;
 		this.description = description;
 		this.price = price;
@@ -46,9 +47,13 @@ public class Product implements Displayable {
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		return currency.format(price);
 	}
-
-	@Override
-	public String toString() {
-		return getDescription();
+	
+	public String getPriceNumberFormatted() {
+		NumberFormat number = NumberFormat.getNumberInstance();
+		number.setMinimumFractionDigits(2);
+		number.setMinimumFractionDigits(2);
+		String priceFormatted = number.format(price);
+		return priceFormatted;
 	}
+	
 }
