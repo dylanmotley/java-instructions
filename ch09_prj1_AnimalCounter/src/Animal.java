@@ -8,13 +8,13 @@ public abstract class Animal implements Countable {
 
 	@Override
 	public void incrementCount() {
-		count += 1;
+		count ++;
 
 	}
 
 	@Override
 	public void resetCount() {
-		count = 1;
+		count = 0;
 
 	}
 
