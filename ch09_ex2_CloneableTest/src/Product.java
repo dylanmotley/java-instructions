@@ -51,11 +51,12 @@ public class Product implements Cloneable {
         return "Code:        " + code + "\n" +
                "Description: " + description + "\n" +
                "Price:       " + this.getFormattedPrice() + "\n";
-    }  
-    
+    }    
+
     @Override
     public Object clone() throws CloneNotSupportedException
     {
         return super.clone();
     }
 }
+

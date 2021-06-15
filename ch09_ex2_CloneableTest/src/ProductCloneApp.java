@@ -6,8 +6,8 @@ public class ProductCloneApp {
         // create a new product
         Product p1 = new Product();
         p1.setCode("java");
-        p1.setDescription("Murach's Beginning Java");
-        p1.setPrice(49.50);
+        p1.setDescription("Murach's Java Programming");
+        p1.setPrice(54.50);
 
         try {
             // clone the product

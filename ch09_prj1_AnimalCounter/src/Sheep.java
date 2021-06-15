@@ -1,30 +1,22 @@
+public class Sheep extends Animal implements Cloneable
+{
+    private String name;
 
-public class Sheep extends Animal implements Cloneable {
-	private String name;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
 
-	public Sheep(int count, String name) {
-		super(count);
-		this.name = name;
-	}
+    @Override
+    public String getCountString() {
+        return count + " " + name;
+    }
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public String getCountString() {
-		return name;
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return (Countable) super.clone();
-	}
-	
-	
-
+    // implement the clonable interface
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

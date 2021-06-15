@@ -1,6 +1,5 @@
-
+@SuppressWarnings("rawtypes")
 public class Customer implements Comparable {
-
     private String email;
     private String firstName;
     private String lastName;
@@ -35,8 +34,8 @@ public class Customer implements Comparable {
         return lastName;
     }
 
-	@Override
-	public int compareTo(Object o) {
+    @Override
+    public int compareTo(Object o) {
         Customer c = (Customer) o;
         int sortResult = this.getEmail().compareToIgnoreCase(c.getEmail());
         if (sortResult < 0) {
@@ -45,5 +44,5 @@ public class Customer implements Comparable {
             return 1;
         }
         return 0;
-	}
+    }
 }

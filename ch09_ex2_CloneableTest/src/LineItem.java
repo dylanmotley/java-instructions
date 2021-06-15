@@ -54,8 +54,8 @@ public class LineItem implements Cloneable {
             "Price: " + product.getFormattedPrice() + "\n" +
             "Quantity: " + quantity + "\n" +
             "Total: " + this.getFormattedTotal() + "\n";
-    }   
-    
+    }    
+
     @Override
     public Object clone() throws CloneNotSupportedException
     {

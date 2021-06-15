@@ -1,40 +1,56 @@
-
 public class AnimalCounterApp {
+    
+    public static void main(String args[]) {
+        countAlligators();
+        countSheep();
+    }
 
-	public static void main(String[] args) {
-		Countable c = null;
-		count(c, 3);
+    public static void countAlligators() {
+        System.out.println("Counting alligators...\n");
 
-	}
+        // create an Alligator object
+        Alligator gator = new Alligator();
 
-	public static void count(Countable c, int maxCount) {
-		System.out.println("Counting alligators. . .");
-		System.out.println();
+        // use the count method to count the Alligator object
+        // a specified number of times
+        count(gator, 3);
+    }
 
-		c = new Alligator(maxCount);
-		for (int i = 1; i <= c.getCount(); i++) {
-			System.out.println(i + " " + c.getCountString());
-		}
-		System.out.println();
-		System.out.println("Counting sheep . . .");
-		System.out.println();
+    public static void countSheep() {
+        System.out.println("Counting sheep...\n");
 
-		c = new Sheep(maxCount - 1, "Blackie");
-		for (int i = 1; i <= c.getCount(); i++) {
-			System.out.println(i + " " + c.getCountString());
-		}
+        // create a Sheep object and set some initial values
+        Sheep blackie = new Sheep();
+        blackie.setName("Blackie");
 
-		System.out.println();
+        // use the count method to count Blackie 2 times
+        count(blackie, 2);
 
-		c = new Sheep(maxCount, "Dolly");
-		for (int i = 1; i <= c.getCount(); i++) {
-			System.out.println(i + " " + c.getCountString());
-		}
-		System.out.println();
+        // make a clone of Blackie
+        Sheep dolly = null;
+        try {
+            dolly = (Sheep) blackie.clone();
+            
+            // change the name of the clone to Dolly
+            dolly.setName("Dolly");
+            
+            // count Dolly 3 times
+            count(dolly, 3);
+        } catch(CloneNotSupportedException e) {
+            System.out.println("Unable to clone: " + e.getMessage());
+        }
 
-		c = new Sheep(maxCount - 2, "Blackie");
-		for (int i = 1; i <= c.getCount(); i++) {
-			System.out.println(i + " " + c.getCountString());
-		}
-	}
+        // count Blackie again 1 time
+        count(blackie, 1);
+    }
+    
+    public static void count(Countable c, int maxCount) {
+        c.resetCount();
+        while (c.getCount() <= maxCount) {
+            System.out.println(c.getCountString());
+            c.incrementCount();
+        }
+        System.out.println();
+    }
+    
 }

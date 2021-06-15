@@ -37,12 +37,12 @@ public class ProductDB {
             s.setVersion("8.2");
             p = s; // set Product object equal to the Software object
         } else if (productCode.equalsIgnoreCase("sgtp")) {
-        	Album a = new Album();
-        	a.setCode("sgtp");
-        	a.setDescription("Sgt. Peppers");
-        	a.setPrice(14.99);
-        	a.setArtist("The Beatles");
-        	p = a;
+            Album a = new Album();
+            a.setCode("sgtp");
+            a.setDescription("Sgt. Peppers");
+            a.setPrice(14.99);
+            a.setArtist("The Beatles");
+            p = a; // set Product object equal to the Software object
         }
         return p;
     }

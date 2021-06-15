@@ -1,26 +1,29 @@
-
 public abstract class Animal implements Countable {
-	private int count = 0;
+    protected int count;
 
-	public Animal(int count) {
-		this.count = count;
-	}
+    public Animal() {
+        count = 1;
+    }
 
-	@Override
-	public void incrementCount() {
-		count ++;
+    // implement the countable interface
+    @Override
+    public String getCountString() {
+        return count + " animal";
+    }
 
-	}
+    @Override
+    public void incrementCount() {
+        count++;
+    }
 
-	@Override
-	public void resetCount() {
-		count = 0;
+    @Override
+    public void resetCount() {
+        count = 1;
+    }
 
-	}
-
-	@Override
-	public int getCount() {
-		return count;
-	}
+    @Override
+    public int getCount() {
+        return count;
+    }
 
 }

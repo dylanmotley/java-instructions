@@ -1,3 +1,4 @@
+
 public final class Book extends Product {
 	private String author;
 

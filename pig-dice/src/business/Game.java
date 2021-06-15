@@ -1,20 +1,20 @@
 package business;
 
 public class Game {
-
+	
 	private int score;
 	private int rollCount;
+	
+	public Game(int score, int rollCount) {
+		super();
+		this.score = score;
+		this.rollCount = rollCount;
+	}
 
 	public Game() {
 		super();
 		score = 0;
 		rollCount = 0;
-	}
-
-	public Game(int score, int rollCount) {
-		super();
-		this.score = score;
-		this.rollCount = rollCount;
 	}
 
 	public int getScore() {
@@ -34,6 +34,7 @@ public class Game {
 	}
 	
 	// dieRoll increments score and roll count
+	// and returns the current roll value
 	public int dieRoll(Die d) {
 		rollCount++;
 		score += d.getValue();

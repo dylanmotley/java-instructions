@@ -43,6 +43,8 @@ public abstract class Product {
     public String toString() {
         return description;
     }
+    
+    public abstract String getDisplayText();
 
     public static int getCount() {
         return count;
