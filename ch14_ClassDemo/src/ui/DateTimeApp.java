@@ -20,6 +20,8 @@ public class DateTimeApp {
 		
 		LocalDate july4th = LocalDate.parse("2021-7-4");
 		System.out.println("July 4th: "+july4th);
+		LocalDateTime laborDay = LocalDateTime.parse("2021-09-06T00:00");
+		System.out.println("Labor Day: "+laborDay);
 
 	}
 
