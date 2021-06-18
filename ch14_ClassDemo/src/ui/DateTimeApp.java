@@ -3,6 +3,8 @@ package ui;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 
 public class DateTimeApp {
@@ -64,7 +66,10 @@ public class DateTimeApp {
 		long monthsBetween = ChronoUnit.MONTHS.between(july4th, laborDay);
 		System.out.println("Months Between: "+monthsBetween);
 		
-		
+		DateTimeFormatter formatter = 
+				DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM, FormatStyle.MEDIUM);
+		System.out.println(formatter.format(currentTimeStamp));
+
 		
 		System.out.println("Bye");
 	}
