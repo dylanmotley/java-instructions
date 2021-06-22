@@ -1,31 +1,33 @@
 package business;
+
 public class Movie {
 	private int id;
 	private String title;
 	private int year;
 	private String rating;
 	private String director;
+		
+	public Movie() {
+		super();
+	}
 
 	public Movie(int id, String title, int year, String rating, String director) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.year = year;
 		this.rating = rating;
+		this.year = year;
 		this.director = director;
 	}
 
-	public Movie() {
+	public Movie(String title, String rating, int year, String director) {
 		super();
-	}
-
-	public Movie(String title, int year, String rating, String director) {
-		this.title =  title;
-		this.year = year;
+		this.title = title;
 		this.rating = rating;
+		this.year = year;
 		this.director = director;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -42,20 +44,20 @@ public class Movie {
 		this.title = title;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-	}
-
 	public String getRating() {
 		return rating;
 	}
 
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 	public String getDirector() {
@@ -68,7 +70,8 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return title + " (" + year + "), rated " + rating + ", " + "directed by " + director;
+		return "Movie [id=" + id + ", title=" + title + ", rating=" + rating + ", year=" + year + ", director="
+				+ director + "]";
 	}
 
 }
