@@ -19,6 +19,13 @@ public class Movie {
 		super();
 	}
 
+	public Movie(String title, int year, String rating, String director) {
+		this.title =  title;
+		this.year = year;
+		this.rating = rating;
+		this.director = director;
+	}
+
 	public int getId() {
 		return id;
 	}

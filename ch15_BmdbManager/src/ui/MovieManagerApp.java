@@ -4,7 +4,7 @@ import com.util.Console;
 
 import business.Movie;
 import interfaces.DAO;
-import text.MovieTextFile;
+import db.MovieDB;
 
 public class MovieManagerApp {
 	private static final String ITEM_NOT_FOUND = "No item found for id: ";
@@ -15,7 +15,7 @@ public class MovieManagerApp {
 		
 		// creating instance of ItemTextFile should create our file
 		// on the first run of this app.
-		DAO<Movie> moviesDAO = new MovieTextFile();
+		DAO<Movie> moviesDAO = new MovieDB(); 
 		
 		int command = 0;
 		while (command != 9) {
@@ -28,8 +28,8 @@ public class MovieManagerApp {
 					// get all
 					System.out.println("Get all Movies");
 					System.out.println("=============================");
-					for (Movie item: moviesDAO.getAll()) {
-						System.out.println(item);
+					for (Movie movie: moviesDAO.getAll()) {
+						System.out.println(movie);
 					}
 					break;
 				case 2:
@@ -39,7 +39,7 @@ public class MovieManagerApp {
 					int id = Console.getInt("ID: ");
 					Movie movie = moviesDAO.get(id);
 					if (movie != null) {
-						System.out.println("Item Found: "+movie);
+						System.out.println("Movie Found: "+movie);
 					}
 					else {
 						System.out.println(ITEM_NOT_FOUND + id);
@@ -49,12 +49,12 @@ public class MovieManagerApp {
 					// add
 					System.out.println("Add Movie");
 					System.out.println("=============================");
-					id = Console.getInt("ID: ");
+					// id = Console.getInt("ID: ");
 					String title = Console.getLine("Title: ");
 					int year = Console.getInt("Year: ");
 					String rating = Console.getLine("Rating: ");
 					String director = Console.getLine("Director: ");
-					if (moviesDAO.add(new Movie(id, title, year, rating, director))) {
+					if (moviesDAO.add(new Movie(title, year, rating, director))) {
 						System.out.println("Movie added!");
 					}
 					else {
