@@ -63,9 +63,12 @@ public class MovieDB implements DAO<Movie> {
 	@Override
 	public boolean add(Movie movie) {
 		boolean success = false;
-		String sql = "insert into movie (title, rating, year, director) values (?)";
+		String sql = "insert into movie (title, rating, year, director) values (?, ?, ?, ?)";
 		try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
 			ps.setString(1, movie.getTitle());
+			ps.setString(2, movie.getRating());
+			ps.setInt(3, movie.getYear());
+			ps.setString(4, movie.getDirector());
 			int rowsAffected = ps.executeUpdate();
 			if (rowsAffected == 1) {
 				success = true;
