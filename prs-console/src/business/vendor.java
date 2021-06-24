@@ -1,5 +1,5 @@
 package business;
 
-public class vendor {
+public class Vendor {
 
 }

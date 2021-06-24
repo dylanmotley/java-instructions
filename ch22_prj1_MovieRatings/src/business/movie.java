@@ -1,5 +1,5 @@
 package business;
 
-public class user {
+public class movie {
 
 }

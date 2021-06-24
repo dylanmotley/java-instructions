@@ -9,7 +9,7 @@ import business.Item;
 
 public class ItemManagerApp {
 	private static List<Item> items;
-	private static final String ITEM_NOT_FOUND_MSG = "Item not found";
+	private static final String ITEM_NOT_FOUND_MSG = "No item found for number: ";
 
 	public static void main(String[] args) {
 		// initialize items list and add some office items
@@ -17,11 +17,11 @@ public class ItemManagerApp {
 		items.add(new Item(1, "Laptop"));
 		items.add(new Item(2, "Monitor"));
 		items.add(new Item(3, "Mouse"));
-
-		// implement CRUD functionality to allow a user to
-		// maintain the list of items: Create, Read (List, Get by id),
+		
+		// implement CRUD functionality to allow a user to 
+		// maintain the list of items:  Create, Read (List, Get by number),
 		// Update, and Delete
-
+		
 		System.out.println("Welcome to the Item Manager App!");
 		System.out.println();
 		int command = 0;
@@ -33,22 +33,22 @@ public class ItemManagerApp {
 				// list all items - loop through and print!
 				System.out.println("Items:");
 				System.out.println("=================");
-				listItems();
+				for (Item i: items) {
+					System.out.println(i);
+				}
 				break;
 			case 2:
-				// get an item by id
+				// get an item by number
 				// - prompt user for number to retrieve
-				// - loop through items and retrieve item
-				// that matches the number entered
-				// - print the item
 				int nbr = Console.getInt("Item number to retrieve: ");
 				Item item = getItem(nbr);
 				System.out.println("Get an Item:");
 				System.out.println("=================");
-				if (item!= null) {
+				if (item!=null) {
 					System.out.println(item);
-				} else {
-					System.out.println(ITEM_NOT_FOUND_MSG);
+				}
+				else {
+					System.out.println(ITEM_NOT_FOUND_MSG + nbr);
 				}
 				break;
 			case 3:
@@ -59,47 +59,50 @@ public class ItemManagerApp {
 				// - display success msg (Item added!)
 				System.out.println("Add an Item:");
 				System.out.println("=================");
-				nbr = Console.getInt("Item Number: ");
-				String desc = Console.getLine("Item Description: ");
+				nbr = Console.getInt("Item number: ");
+				String desc = Console.getLine("Item description: ");
 				items.add(new Item(nbr, desc));
 				System.out.println("Item added!");
-				
 				break;
 			case 4:
 				// update an item
 				// - prompt user for number to retrieve
 				// - loop through items and retrieve item
-				// that matches the number entered
+				//   that matches the number entered
 				// - if item not found, print message
 				// - if item found, prompt user for new description
 				// - change the item description (hint: use setter)
-				// and display success msg
+				//   and display success msg
 				System.out.println("Update an Item:");
 				System.out.println("=================");
 				nbr = Console.getInt("Item number to retrieve: ");
 				item = getItem(nbr);
-				if (item!= null) {
-					item.setDescription(Console.getLine("New Description: "));
-					System.out.println("Item Updated!");
-				} else
-					System.out.println(ITEM_NOT_FOUND_MSG);
+				if (item!=null) {
+					item.setDescription(Console.getLine("New description: "));
+					System.out.println("Item updated!");
+				}
+				else {
+					System.out.println(ITEM_NOT_FOUND_MSG + nbr);
+				}
 				break;
 			case 5:
 				// delete an item
 				// - prompt user for number to retrieve
 				// - loop through items and retrieve item
-				// that matches the number entered
+				//   that matches the number entered
 				// - if item not found, print message
 				// - if item found, delete it and display success msg
 				System.out.println("Delete an Item:");
 				System.out.println("=================");
 				nbr = Console.getInt("Item number to delete: ");
 				item = getItem(nbr);
-				if (item!= null) {
+				if (item!=null) {
 					items.remove(item);
-					System.out.println("Item Deleted: "+item);
-				} else
-					System.out.println(ITEM_NOT_FOUND_MSG);
+					System.out.println("Item deleted: "+item);
+				}
+				else {
+					System.out.println(ITEM_NOT_FOUND_MSG + nbr);
+				}
 				break;
 			case 9:
 				// exit
@@ -112,26 +115,20 @@ public class ItemManagerApp {
 		}
 		System.out.println("Bye!");
 	}
-
-	private static void listItems() {
-		for (int i = 0; i < items.size(); i++) {
-			System.out.println(items.get(i));
-		}
-	}
-
+	
 	private static Item getItem(int itemNbr) {
 		Item foundItem = null;
 		// - loop through items and retrieve item
-		// that matches the number entered
+		//   that matches the number entered
 		// - print the item
-		for (Item item : items) {
+		for (Item item: items) {
 			if (item.getNumber() == itemNbr) {
 				foundItem = item;
 			}
 		}
 		return foundItem;
 	}
-
+	
 	private static void displayMenu() {
 		System.out.println("COMMAND MENU:");
 		System.out.println("==================");

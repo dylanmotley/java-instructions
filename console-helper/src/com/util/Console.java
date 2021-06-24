@@ -111,4 +111,10 @@ public class Console {
 		}
 		return d;
 	}
+	
+	public static boolean getBoolean(String prompt) {
+		String response = getString(prompt, "y", "n");
+		return response.equalsIgnoreCase("y") ? true : false;
+		
+	}
 }

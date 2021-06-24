@@ -1,5 +1,5 @@
 package business;
 
-public class request {
+public class Request {
 
 }
