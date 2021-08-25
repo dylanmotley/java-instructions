@@ -8,8 +8,11 @@ public class CodingChallengeApp {
 		int two = Console.getInt("Big: ");
 		int three = Console.getInt("Total: ");
 		
+		
 		String rem = makeChocolate(one, two, three);
 		System.out.println(rem);
+		System.out.println();
+		System.out.println("End");
 
 	}
 
